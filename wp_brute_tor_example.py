@@ -47,13 +47,12 @@ with open('/opt/cracking/SecLists/Passwords/probable-v2-top12000.txt', 'rb') as 
       cc += 1
 
     except Exception as e:
-      cc += 1
+      cc = 666
       if "refused" in str(e):
         # yeah yeah yeah - disgusting I know
         print(f'Missed passwd --> {ll}')
         with open('./missed.txt', 'w+') as mp:
           mp.write(f'{ll}\n')
-        cc = 10
       else:
         print(f'Error --> {str(e)}')
 
