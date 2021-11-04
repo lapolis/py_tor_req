@@ -48,7 +48,7 @@ with open('/opt/cracking/SecLists/Passwords/probable-v2-top12000.txt', 'rb') as 
 
     except Exception as e:
       cc = 666
-      if "refused" in str(e):
+      if any(x in str(e) for x in ["refused","Max retries exceeded","closed connection withou"]):
         # yeah yeah yeah - disgusting I know
         print(f'Missed passwd --> {ll}')
         with open('./missed.txt', 'w+') as mp:
